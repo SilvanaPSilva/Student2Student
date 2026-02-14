@@ -20,15 +20,15 @@
 
                             <!-- e-mail login -->
                             <TextBlock Text="E-mail"/>
-                            <TextBox x:Name="txtusername" Height="32" Margin="0,6,0,16"/>
+                            <TextBox x:Name="txtEmailLogin" Height="32" Margin="0,6,0,16"/>
 
                             <!-- password -->
                             <TextBlock Text="Password"/>
-                            <TextBox x:Name="txtPassword" Height="32" Margin="0,6,0,16"/>
+                            <PasswordBox x:Name="txtPasswordLogin" Height="32" Margin="0,6,0,16"/>
 
                             <!-- Button Login -->
                             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                                <Button Content="Login" Width="140" Height="36" FontWeight="Bold"/>
+                                <Button x:Name="bntLogin" Content="Login" Width="140" Height="36" FontWeight="Bold" Click="Button_Click"/>
                             </StackPanel>
 
                             <!-- Create an Account -->
@@ -52,19 +52,20 @@
                     <StackPanel MaxWidth="420" >
                         <TextBlock Text="User Registration" FontSize="20" FontWeight="Bold" Margin="0,0,0,20"/>
 
+                        <Button Content="Test DB" Width="120" Height="30" Click="BtnTestDb_Click"/>
+
+
                         <TextBlock Text="Email"/>
-                        <TextBox Height="32" Margin="0,6,0,16"/>
+                        <TextBox x:Name="txtEmailRegister" Height="32" Margin="0,6,0,16"/>
 
                         <!-- Password Register -->
                         <TextBlock Text="Password"/>
-                        <TextBox x:Name="txtPasswordRegister" Height="32" Margin="0,6,0,16"/>
+                        <PasswordBox x:Name="txtPasswordRegister" Height="32" Margin="0,6,0,16"/>
 
                         <TextBlock Text="Confirm Password"/>
-                        <TextBox x:Name="txtPasswordRegisterConfirmation" Height="32" Margin="0,6,0,16"/>
+                        <PasswordBox x:Name="txtPasswordRegisterConfirmation" Height="32" Margin="0,6,0,16"/>
 
-                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                            <Button x:Name="btnRegister" Content="Register" Width="140" Height="36" FontWeight="Bold" Click="btnRegister_Click"/>
-                        </StackPanel>
+                        <Button x:Name="btnRegister" Content="Register" Width="140" Height="36" FontWeight="Bold" Click="btnRegister_Click"/>                       
 
                         <!-- Personal Information -->
 
@@ -80,40 +81,83 @@
                                     </StackPanel>
                                 </GroupBox>
 
-                                <TextBlock Text="Full Name"/>
-                                <TextBox Height="32" Margin="0,6,0,16"/>
+                                <TextBlock Text="First Name"/>
+                                <TextBox x:Name="txtFirstName" Height="32" Margin="0,6,0,16"/>
+
+                                <TextBlock Text="Last Name"/>
+                                <TextBox x:Name="txtLastName" Height="32" Margin="0,6,0,16"/>
+
+                                <TextBlock Text="Birth Date"/>
+                                <DatePicker x:Name="dpBirthDate" Margin="0,6,0,16"/>
 
                                 <TextBlock Text="Phone Number"/>
-                                <TextBox Height="32" Margin="0,6,0,16"/>
+                                <TextBox x:Name="txtPhoneNumber" Height="32" Margin="0,6,0,16"/>
+
+                                <TextBlock Text="Student Number"/>
+                                <TextBox x:Name="txtStudentNumber" Height="32" Margin="0,6,0,16"/>
 
                                 <TextBlock Text="University"/>
-                                <TextBox Height="32" Margin="0,6,0,16"/>
+                                <ComboBox x:Name="txtUniversity" Height="32" Margin="0,6,0,16">
+                                    <ComboBoxItem Content="ATU Donegal – Letterkenny Campus"/>
+                                    <ComboBoxItem Content="ATU Donegal – Killybegs Campus"/>
+                                    <ComboBoxItem Content="ATU Donegal – Ballybofey/Stranorlar (Finn Valley) Campus"/>
+                                    <ComboBoxItem Content="ATU Sligo – Sligo Campus"/>
+                                    <ComboBoxItem Content="ATU Sligo – St. Angela’s Campus"/>
+                                    <ComboBoxItem Content="ATU Galway – Galway City (Dublin Road) Campus"/>
+                                    <ComboBoxItem Content="ATU Galway – Galway City (Wellpark) Campus"/>
+                                    <ComboBoxItem Content="ATU Mayo – Castlebar Campus"/>
+                                    <ComboBoxItem Content="ATU Mayo – Mountbellew Campus"/>
+                                </ComboBox>
 
                                 <TextBlock Text="Course"/>
-                                <TextBox Height="32" Margin="0,6,0,16"/>
-
+                                <ComboBox x:Name="txtCourse" Height="32" Margin="0,6,0,16">
+                                    <!-- Donegal -->
+                                    <ComboBoxItem Content="Computing in Applied Computing - Level 8 - AU360"/>
+                                    <ComboBoxItem Content="Computing with Computer Games Development - Level 7 - AU260"/>
+                                    <ComboBoxItem Content="Computer Science - Level 8 - AU361"/>
+                                    <ComboBoxItem Content="Computing - Level 7 - AU261"/>
+                                    <ComboBoxItem Content="Computing and Artificial Intelligence - Level 8 - AU363"/>
+                                    <ComboBoxItem Content="Cyberpsychology - Level 8 - AU362"/>
+                                    <ComboBoxItem Content="Computing with Cybersecurity Digital Forensics - Level 7 - AU262"/>
+                                    <!-- Galway -->
+                                    <ComboBoxItem Content="Business Information Systems - Level 8 - AU602"/>
+                                    <ComboBoxItem Content="Business Information Systems - Level 7 - AU502"/>
+                                    <ComboBoxItem Content="Computing and Digital Media - Level 8 - AU677"/>
+                                    <ComboBoxItem Content="Computing and Digital Media - Level 7 - AU577"/>
+                                    <ComboBoxItem Content="Computing in Software Development - Level 8 - AU676"/>
+                                    <ComboBoxItem Content="Software Development - Level 7 - AU576"/>
+                                    <!-- Sligo -->
+                                    <ComboBoxItem Content="Business and ICT - Level 8 - AU901"/>
+                                    <ComboBoxItem Content="Computer Networks and Cyber Security - Level 8 - AU956"/>
+                                    <ComboBoxItem Content="Computing - Level 8 - AU955"/>
+                                    <ComboBoxItem Content="Computing - Level 7 - AU845"/>
+                                    <ComboBoxItem Content="Computing - Level 6 - AU725"/>
+                                    <ComboBoxItem Content="Games Development - Level 7 - AU848"/>
+                                    <ComboBoxItem Content="Software Development - Level 8 - AU957"/>
+                                </ComboBox>
+                                
                                 <TextBlock Text="Academic Year"/>
-                                <TextBox Height="32" Margin="0,6,0,24" ToolTip="Example: 1, 2, 3, 4"/>
+                                <TextBox x:Name="txtAcademicYear" Height="32" Margin="0,6,0,24" ToolTip="Example: 1, 2, 3, 4"/>
                             </StackPanel>
                         </GroupBox>
 
                         <GroupBox Header="Select Subjects you are availabel" Margin="0,0,0,10" x:Name="subjectsGroupBox" Visibility="Collapsed">
                             <StackPanel x:Name="panelSubjects" >
                                 <UniformGrid Columns="2" Margin="5">
-                                    <CheckBox Content="Maths" Margin="0,5,0,0"/>
-                                    <CheckBox Content="OOP C#" Margin="0,5,0,0"/>
-                                    <CheckBox Content="JavaScript" Margin="0,5,0,0"/>
-                                    <CheckBox Content="AWS" Margin="0,5,0,0"/>
-                                    <CheckBox Content="HTML" Margin="0,5,0,0"/>
-                                    <CheckBox Content="SQL" Margin="0,5,0,0"/>
-                                    <CheckBox Content="Angular" Margin="0,5,0,0"/>
-                                    <CheckBox Content="Boostrap" Margin="0,5,0,15"/>
+                                    <CheckBox Content="Cloud Computing - AWS" Margin="0,5,0,0"/>
+                                    <CheckBox Content="Database Systems" Margin="0,5,0,0"/>
+                                    <CheckBox Content="Mathematics" Margin="0,5,0,0"/>
+                                    <CheckBox Content="Object-Oriented Programming - C#" Margin="0,5,0,0"/>
+                                    <CheckBox Content="Web Programming - Angular" Margin="0,5,0,0"/>
+                                    <CheckBox Content="Web Programming - Bootstrap" Margin="0,5,0,0"/>
+                                    <CheckBox Content="Web Programming - HTML" Margin="0,5,0,0"/>
+                                    <CheckBox Content="Web Programming - JavaScript" Margin="0,5,0,15"/>
                                 </UniformGrid>
                             </StackPanel>
                         </GroupBox>
-
-                    </StackPanel>
-                </ScrollViewer>
+                        <Button x:Name="btnSaveRegister" Content="Save Registration" Width="160" Height="36" FontWeight="Bold" Margin="0,10,0,0" Click="btnSaveRegister_Click" Visibility="Collapsed"/>
+                    </StackPanel>                    
+                </ScrollViewer>                
             </TabItem>
 
             <!--<StackPanel Reservation Width="500">-->
