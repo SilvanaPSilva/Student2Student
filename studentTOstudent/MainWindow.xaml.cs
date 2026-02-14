@@ -81,9 +81,12 @@ namespace studentTOstudent
                     subjectsGroupBox.Visibility = Visibility.Visible;
 
                 return;
-            }
-            ;
+            };
 
+        }
+
+        private void btnSaveRegister_Click(object sender, RoutedEventArgs e)
+        {
             // Se chegou aqui, estamos na segunda etapa → salvar no banco
             RegisterUserInDatabase();
         }
@@ -292,9 +295,6 @@ namespace studentTOstudent
         }// FINISH LOGIN FUNCTIONALITY
 
         // REGISTRATION FUNCTIONALITY
-        private void btnSaveRegister_Click(object sender, RoutedEventArgs e)
-        {
-            // TODO: Implement save registration logic here
-        }
+       
     }
 }
